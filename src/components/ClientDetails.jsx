@@ -70,7 +70,11 @@ function ClientDetails({onSubmit, onCancel, data}){
                         <div className="col">
                         <label htmlFor="AgencyName" className="form-label">Agency Name</label>
                         <select id="AgencyName" className="form-select" value={state_data.Agency_Name} onChange={(e)=>setStateData({...state_data, Agency_Name:e.target.value})}>
-                            <option>Select Agency</option>
+                            <option value="">Select Agency</option>
+                            <option value="VTA" selected = {state_data.Agency_Name==="VTA"? true : false}>VTA</option>
+                            <option value="EBP" selected = {state_data.Agency_Name==="EBP"? true : false}>EBP</option>
+                            <option value="STB" selected = {state_data.Agency_Name==="STB"? true : false}>STB</option>
+                            <option value="OPD" selected = {state_data.Agency_Name==="OPD"? true : false}>OPD</option>
                         </select>
                         <div id="AgencyNameHelp" className="form-text">REQUIRED</div>
 
@@ -108,10 +112,10 @@ function ClientDetails({onSubmit, onCancel, data}){
                     <div className="row row-cols-1 formtile">
                         <div className="col">
                         <label htmlFor="Companions" className="form-label">Number of Companions</label>
-                        <select id="Companions" className="form-select">
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
+                        <select id="Companions" className="form-select" value={state_data.Number_of_Companions} onChange={(e)=>setStateData({...state_data, Number_of_Companions:e.target.value})}>
+                            <option value="0" selected = {state_data.Agency_Name==="0"? true : false}>0</option>
+                            <option value="1" selected = {state_data.Agency_Name==="1"? true : false}>1</option>
+                            <option value="2" selected = {state_data.Agency_Name==="2"? true : false}>2</option>
                         </select>
                         <div id="CompanionsHelp" className="form-text">Shall not exceed 2.</div>
                         </div>

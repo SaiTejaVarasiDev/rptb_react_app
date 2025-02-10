@@ -7,9 +7,9 @@ function RequestBooking({onBookingCancel}){
     const [BookingData,setData] = useState({
         current_stage: 1,
         body: {
-            1:{content: <ClientDetails onSubmit={nextStage} onCancel={prevStage}/>, completed: true},
-            2:{content: <TripDetails onSubmit={nextStage} onCancel={prevStage}/>, completed: false},
-            3:{content: <BookingPreview onSubmit={nextStage} onCancel={prevStage}/>, completed: false}
+            1:{content: <ClientDetails onSubmit={nextStage} onCancel={prevStage}/>, completed: true, form_complete: false},
+            2:{content: <TripDetails onSubmit={nextStage} onCancel={prevStage}/>, completed: false, form_complete: false},
+            3:{content: <BookingPreview onSubmit={nextStage} onCancel={prevStage}/>, completed: false,form_complete: false}
         },
         Regional_ADA_Client_ID: "",
         Agency_Client_ID: "",
@@ -55,7 +55,8 @@ function RequestBooking({onBookingCancel}){
                 current_stage: prevBookingData.current_stage+1,
                 body : {
                     ...prevBookingData.body,
-                    [prevBookingData.current_stage+1]:{...prevBookingData[prevBookingData.current_stage+1],completed:true}
+                    [prevBookingData.current_stage]:{...prevBookingData[prevBookingData.current_stage],completed:true,form_complete: true},
+                    [prevBookingData.current_stage+1]:{...prevBookingData[prevBookingData.current_stage+1],completed:true,}
                 },
                 Regional_ADA_Client_ID: state_data.Regional_ADA_Client_ID,
                 Agency_Client_ID: state_data.Agency_Client_ID,
@@ -78,6 +79,7 @@ function RequestBooking({onBookingCancel}){
             if(BookingData.Booked){
                 console.log("got to home")
             }else{
+                
                 const data = JSON.stringify({
                     Regional_ADA_Client_ID: BookingData.Regional_ADA_Client_ID,
                 Agency_Client_ID: BookingData.Agency_Client_ID,
@@ -106,6 +108,10 @@ function RequestBooking({onBookingCancel}){
                 xhr.send(data);
                 setData(prevBookingData=>({
                     ...prevBookingData,
+                    body : {
+                        ...prevBookingData.body,
+                        [prevBookingData.current_stage]:{...prevBookingData[prevBookingData.current_stage],completed:true,form_complete: true}
+                    },
                     Booked : true
                 }))
                 console.log("booking completed");
@@ -124,7 +130,8 @@ function RequestBooking({onBookingCancel}){
                 current_stage: prevBookingData.current_stage-1,
                 body : {
                     ...prevBookingData.body,
-                    [prevBookingData.current_stage]:{...prevBookingData[prevBookingData.current_stage],completed:false}
+                    [prevBookingData.current_stage]:{...prevBookingData[prevBookingData.current_stage],completed:false},
+                    [prevBookingData.current_stage-1]:{...prevBookingData[prevBookingData.current_stage-1],completed:true, form_complete: false}
                 },
             }));
         }else{
@@ -138,14 +145,15 @@ function RequestBooking({onBookingCancel}){
         <div className="col-md-10 col-sm-12 container-fluid pe-5">
             <div className="row row-cols-1 ps-5 pt-2">
                 <div className="col ps-0">
-                    {BookingData.Booked ? <h2>Booking Request Created</h2> : <h2>Request Booking</h2> }
+                    {BookingData.Booked ? <div><h2>Booking Request Created</h2><h5 id="booking_status">Success</h5></div> : <h2>Request Booking</h2> }
                 </div>
                 <div className="col">
                     <div className="row row-cols-3">
-                        <div className={`col ${BookingData.body[1].completed ? "stagebar":"non-stagebar"}`}>
+                        <div className={`col ${BookingData.body[1].form_complete ? "completedstagebar":BookingData.current_stage===1? "current_stagebar":"non-completed-stagebar"}`}>
                             <div className="row row-cols-2">
                                 <div className="col-1 ps-1">
-                                    <i className="bi bi-circle"></i>
+                                    {BookingData.current_stage===1 ? <i className="bi bi-circle"></i> : <i className="bi bi-check"></i>}
+                                    
                                 </div>
                                 <div className="col-11 ps-0">
                                     <div className="d-flex align-items-start">1. Client Details</div>
@@ -154,10 +162,10 @@ function RequestBooking({onBookingCancel}){
                             </div>
                             
                         </div>
-                        <div className={`col ${BookingData.body[2].completed ? "stagebar":"non-stagebar"}`}>
+                        <div className={`col ${BookingData.body[2].form_complete ? "completedstagebar":BookingData.current_stage===2? "current_stagebar":"non-completed-stagebar"}`}>
                             <div className="row row-cols-2">
                                 <div className="col-1 ps-1">
-                                    <i className="bi bi-circle"></i>
+                                {BookingData.current_stage<=2 ? <i className="bi bi-circle"></i> : <i className="bi bi-check"></i>}
                                 </div>
                                 <div className="col-11 ps-0">
                                     <div className="d-flex align-items-start">2. Trip Details</div>
@@ -166,10 +174,10 @@ function RequestBooking({onBookingCancel}){
                             </div>
                             
                         </div>
-                        <div className={`col ${BookingData.body[3].completed ? "stagebar":"non-stagebar"}`}>
+                        <div className={`col ${BookingData.body[3].form_complete ? "completedstagebar":BookingData.current_stage===3? "current_stagebar":"non-completed-stagebar"}`}>
                             <div className="row row-cols-2">
                                 <div className="col-1 ps-1">
-                                    <i className="bi bi-circle"></i>
+                                {BookingData.Booked ? <i className="bi bi-check"></i> : <i className="bi bi-circle"></i>}
                                 </div>
                                 <div className="col-11 ps-0">
                                     <div className="d-flex align-items-start">3. Booking Preview</div>

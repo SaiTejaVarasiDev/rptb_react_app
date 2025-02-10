@@ -44,8 +44,12 @@ function TripDetails({onSubmit, onCancel, data}){
                         </div>
                         <div className="col">
                         <label htmlFor="AgencyName" className="form-label">Agency Name</label>
-                        <select id="AgencyName" className="form-select">
-                            <option>Select Agency</option>
+                        <select id="AgencyName" className="form-select" value={state_data.Agency_Name} onChange={(e)=>setStateData({...state_data, Agency_Name:e.target.value})} >
+                            <option value="">Select Agency</option>
+                            <option value="VTA" selected = {state_data.Agency_Name==="VTA"? true : false}>VTA</option>
+                            <option value="EBP" selected = {state_data.Agency_Name==="EBP"? true : false}>EBP</option>
+                            <option value="STB" selected = {state_data.Agency_Name==="STB"? true : false}>STB</option>
+                            <option value="OPD" selected = {state_data.Agency_Name==="STB"? true : false}>STB</option>
                         </select>
                         <div id="AgencyNameHelp" className="form-text">REQUIRED</div>
 

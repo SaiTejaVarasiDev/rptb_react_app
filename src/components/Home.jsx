@@ -93,6 +93,22 @@ function Home(){
         }
         return graph_db;
     }
+    function pieData(db_data){
+        let pie_data = [
+            {Agency : "VTA", value : 0},
+            {Agency : "EBP", value : 0},
+            {Agency : "STB", value : 0},
+            {Agency : "OPD", value : 0}
+        ];
+        for(let i=0;i<db_data.length;i++){
+            if(db_data[i].Trip_Date.length>0){
+                let x = db_data[i].Agency_Name;
+                pie_data.filter(data=>data.Agency===x).map(data=>(data.value++));
+
+            }
+        }
+        return pie_data;
+    }
     function handleDashboard(){
         console.log("regional trips");
         setDisableButton(false);
@@ -105,7 +121,9 @@ function Home(){
               const body = JSON.parse(responseData['body']);
               let db_data = tranformResptodata(body);
               let graph_db = graphData(db_data);
-              changeContent(<Dashboard db_data={graph_db} />)
+              let pie_db = pieData(db_data);
+              console.log("pie_db->",pie_db)
+              changeContent(<Dashboard db_data={graph_db} pie_data={pie_db}/>)
             } else {
               console.error("Error:", xhr.status, xhr.statusText);
             }

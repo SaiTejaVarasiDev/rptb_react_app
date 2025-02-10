@@ -1,14 +1,23 @@
-.col.stagebar{
+.col.completedstagebar{
+    border-top-style: solid;
+    border-width: 1px;
+    border-top-color: blue;
+    border-top-width: 3px;
+    background-color: rgb(187, 237, 187);
+
+    
+}
+.col.non-completed-stagebar{
+    background-color: rgb(227, 234, 245);
+    
+    
+}
+.col.current_stagebar{
     border-top-style: solid;
     border-width: 1px;
     border-top-color: blue;
     border-top-width: 3px;
 
-    
-}
-.col.non-stagebar{
-    background-color: rgb(227, 234, 245);
-    
     
 }
 thead#tripstablehead {
@@ -17,4 +26,7 @@ thead#tripstablehead {
 }
 tr#tripstabletitle {
     background-color: blue!important;
+}
+#booking_status{
+    color: green;
 }

@@ -47,7 +47,7 @@ function BookingPreview({onSubmit, onCancel, data}){
                 <div className="row row-cols-1">
                     <div className="col">
                         <p>Number of Companions</p>
-                        <p>N/A</p>
+                        <p>{data.Number_of_Companions}</p>
                     </div>
                 </div>
 
@@ -108,7 +108,8 @@ function BookingPreview({onSubmit, onCancel, data}){
                 <div className="row row-cols-1 form tile">
                     <div className="col d-flex justify-content-end">
                         <button className="btn btn-outline-primary" onClick={handleCancel}>Cancel</button>
-                        <button className="btn btn-primary" type="submit" onClick={handleSave} >{data.Booked ? "Close" : "Submit"}</button>
+                        {data.Booked ? <button className="btn btn-primary" type="submit" onClick={handleCancel} >Close</button> : <button className="btn btn-primary" type="submit" onClick={handleSave} >Submit</button>}
+                        
                     </div>
                 </div>
             </div>
