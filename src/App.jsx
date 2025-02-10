@@ -1,6 +1,6 @@
 import SighIn from "./components/SighIn"
 import ForgotPassword from "./components/ForgotPassword";
-import Home from "./components/home";
+import Home from "./components/Home";
 import { useState } from "react";
 
 function App() {
