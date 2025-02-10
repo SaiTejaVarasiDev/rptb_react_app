@@ -12,9 +12,9 @@ function RegionalTrips({db_data}){
                 <p>Regional Trips</p>
             </div>
             <div className="row row-cols-1">
-                <table className="table border">
-                    <thead>
-                        <tr>
+                <table className="table border" id="tripstable">
+                    <thead id="tripstablehead">
+                        <tr id="tripstabletitle">
                             <th scope="col">Trip Date</th>
                             <th scope="col">Regional Trip ID</th>
                             <th scope="col">Cancel Trip</th>
@@ -36,7 +36,7 @@ function RegionalTrips({db_data}){
                             <th scope="col">Booking Agency</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tripstabelbody">
                         {table_data.map((row)=>(
                             <tr key={row.id}>
                                 <td>{row.Trip_Date}</td>

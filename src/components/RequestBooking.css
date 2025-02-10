@@ -11,3 +11,10 @@
     
     
 }
+thead#tripstablehead {
+    border-style: solid;
+    border-width: medium;
+}
+tr#tripstabletitle {
+    background-color: blue!important;
+}

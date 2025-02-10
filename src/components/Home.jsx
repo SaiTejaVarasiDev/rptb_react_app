@@ -120,44 +120,44 @@ function Home(){
             <div className="row border m-0">  
                 {/* //vh-100 */}
                 <div className="col-md-2 col-sm-12 border container-fluid d-flex flex-column" id="sideNavbar">
-                    <div className="row border p-0 ps-3">
-                            <div className="col-md-2 border p-0 m-0">
+                    <div className="row p-0 ps-3">
+                            <div className="col-md-2 p-0 m-0">
                                 <h3><i className="bi bi-x-square"></i></h3>
                             </div>
-                            <div className="col-md-10 border p-0 m-0">
-                                <div className="d-flex flex-column border">
-                                <h5 className="border m-0">RPTB</h5>
-                                <p className="border">Regional Paratransit Trip Booking</p>
+                            <div className="col-md-10 p-0 m-0">
+                                <div className="d-flex flex-column">
+                                <h5 className="m-0">RPTB</h5>
+                                <p className="">Regional Paratransit Trip Booking</p>
                                 </div>
                             </div>
                         
                     </div>
-                    <div className="row border p-0 ps-3">
+                    <div className="row p-0 ps-3">
                         <button className="btn btn-primary m-0 p-2 rounded-0" onClick={requestBooking} disabled={disbaleButton}> + Request Booking</button>
                     </div>
-                    <div className="row border p-0 ps-3">
+                    <div className="row p-0 ps-3">
                         <button className="btn m-0 p-2 border rounded-0" onClick={handleDashboard}><i className="bi bi-house-door"></i> Dashboard</button>
                     </div>
-                    <div className="row border p-0 ps-3">
+                    <div className="row p-0 ps-3">
                     <button className="btn m-0 p-2 border rounded-0"><i className="bi bi-inbox"></i> Inbox</button>
                     </div>
-                    <div className="row border p-0 ps-3">
+                    <div className="row p-0 ps-3">
                     <button className="btn m-0 p-2 border rounded-0" onClick={handleRegionalTrips}><i className="bi bi-tags"></i> Regional Trips</button>
                     </div>
-                    <div className="row border p-0 ps-3">
+                    <div className="row p-0 ps-3">
                     <button className="btn m-0 p-2 border rounded-0"><i className="bi bi-files"></i> Reports</button>
                     </div>
-                    <div className="row border p-0 ps-3 mt-auto">
-                            <div className="col-md-2 border p-0 m-0">
+                    <div className="row p-0 ps-3 mt-auto">
+                            <div className="col-md-2 p-0 m-0">
                                 <h3><i className="bi bi-person-circle"></i></h3>
                             </div>
-                            <div className="col-md-8 border p-0 m-0">
-                                <div className="d-flex flex-column border">
-                                <h6 className="border m-0">Jane Doe</h6>
-                                <p className="border">Agency</p>
+                            <div className="col-md-8 p-0 m-0">
+                                <div className="d-flex flex-column">
+                                <h6 className="m-0">Jane Doe</h6>
+                                <p className="">Agency</p>
                                 </div>
                             </div>
-                            <div className="col-md-2 border p-0 m-0">
+                            <div className="col-md-2 p-0 m-0">
                                 <h5><i className="bi bi-gear"></i></h5>
                             </div>
                     </div>
