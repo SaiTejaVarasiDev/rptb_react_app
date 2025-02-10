@@ -1,0 +1,54 @@
+label.form-label{
+    font-size: 13px;
+    font-weight: 500;
+}
+input.form-control{
+    margin-bottom: 5px;
+    border-radius: 0%;
+    border-width: inherit;
+    border-bottom-width: revert;
+    background-color: rgb(242, 242, 244);
+    border-bottom-color: rgb(103, 96, 96);
+    font-size: 14px;
+}
+textarea.form-control{
+    margin-bottom: 5px;
+    border-radius: 0%;
+    border-width: inherit;
+    border-bottom-width: revert;
+    background-color: rgb(242, 242, 244);
+    border-bottom-color: rgb(103, 96, 96);
+    font-size: 14px;
+}
+select.form-select{
+    margin-bottom: 5px;
+    border-radius: 0%;
+    border-width: inherit;
+    border-bottom-width: revert;
+    background-color: rgb(242, 242, 244);
+    border-bottom-color: rgb(103, 96, 96);
+    font-size: 14px;
+}
+div.form-text{
+    font-size: 11px;
+}
+div.formtile{
+    margin-top: 15px;
+}
+input#Assistant{
+    border-radius: 0%;
+    border-width: 1px;
+    border-color: black;
+}
+
+button.btn{
+    border-radius: 0%;
+    margin-top: 10px;
+    margin-right: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}

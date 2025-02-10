@@ -1,0 +1,50 @@
+label.form-label.text-start {
+    font-size: 13px;
+    font-weight: 450;
+    margin-bottom: 0;
+}
+input#email {
+    margin-bottom: 5px;
+}
+input#password {
+    margin-bottom: 5px;
+}
+input#Rememberme {
+    position: relative;
+    top: 2px;
+    margin-right: 2px;
+}
+button.btn.btn-link {
+    position: relative;
+    bottom: 6px;
+}
+#Remembermelabel{
+    font-size: 13px;
+}
+#forgotpassbutton{
+    font-size: 13px;
+}
+#helptext{
+    font-size: 13px;
+}
+#loginbox{
+    max-width: 500px;
+    background-color: white;
+}
+input#email {
+    border-width: inherit;
+    border-bottom-width: revert;
+    background-color: rgb(242, 242, 244);
+    border-bottom-color: rgb(103, 96, 96);
+    font-size: 14px;
+}
+input#password{
+    border-width: inherit;
+    border-bottom-width: revert;
+    background-color: rgb(242, 242, 244);
+    border-bottom-color: rgb(103, 96, 96);
+    font-size: 14px;
+}
+html{
+    background-color: aliceblue;
+}

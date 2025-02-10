@@ -1,0 +1,13 @@
+.col.stagebar{
+    border-top-style: solid;
+    border-width: 1px;
+    border-top-color: blue;
+    border-top-width: 3px;
+
+    
+}
+.col.non-stagebar{
+    background-color: rgb(227, 234, 245);
+    
+    
+}
