@@ -32,7 +32,7 @@ function SighIn({onForgotPassword, onLogin}) {
         />
       </div>
       <div className="col">
-        <div className="row">
+        <div className="row other-inputs-class">
           <div className="col align-self-start">
             <input
               type="checkbox"
@@ -49,7 +49,7 @@ function SighIn({onForgotPassword, onLogin}) {
           </div>
         </div>
       </div>
-      <div className="col d-grid">
+      <div className="col d-grid login-custom-class">
         <button type="button" className="btn btn-primary rounded-0" onClick={onLogin}>
           Log In
         </button>

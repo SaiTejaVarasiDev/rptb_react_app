@@ -7,28 +7,3 @@ p.border {
     max-height: 725px;
 }
 
-.input-class{
-    width: 300px;
-    border-width: inherit;
-    border-bottom-width: revert;
-    background-color: rgb(242, 242, 244);
-    border-bottom-color: rgb(103, 96, 96);
-    font-size: 14px;
-}
-input.mt-0.rounded-0.input-class {
-    border-style: solid;
-    border-top-width: 0;
-    border-right-width: 0;
-    border-left-width: 0;
-    height: 35px;
-}
-
-.input-label-class{
-    font-size: 13px;
-}
-.filter-options-class{
-    width: 80%;
-}
-.heading-style{
-    font-weight: 500;
-}

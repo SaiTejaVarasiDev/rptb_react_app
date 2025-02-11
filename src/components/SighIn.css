@@ -48,3 +48,13 @@ input#password{
 html{
     background-color: aliceblue;
 }
+
+button#forgotpassbutton {
+    margin-top: 2px;
+}
+.col.d-grid.login-custom-class{
+    padding-left: 0;
+}
+.other-inputs-class{
+    height: 20px;
+}
