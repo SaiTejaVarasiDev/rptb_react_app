@@ -5,3 +5,7 @@
 .customTile{
     border: 1px solid rgb(212, 210, 210) !important;
 }
+.card-text.text-center{
+    font-size: 18px;
+    font-weight: 500;
+}

@@ -16,16 +16,16 @@ function Dashboard({db_data, pie_data}){
                 <div className="col border me-4 card text-bg-success">
                     <div className="card-body">
 
-                    <h5 className="card-title">Booking Successful</h5>
-                    <p className="card-text">{db_data.reduce((count,rec)=> count+rec.bookings,0)}</p>
+                    <h5 className="card-title text-center">Booking Successful</h5>
+                    <p className="card-text text-center">{db_data.reduce((count,rec)=> count+rec.bookings,0)}</p>
                     </div>
                 </div>
                 
                 <div className="col border me-4 card text-bg-success">
                     <div className="card-body">
 
-                    <h5 className="card-title">Round Trips Booked</h5>
-                    <p className="card-text">4</p>
+                    <h5 className="card-title text-center">Round Trips Booked</h5>
+                    <p className="card-text text-center">4</p>
                     </div>
                 </div>
                 
@@ -33,8 +33,8 @@ function Dashboard({db_data, pie_data}){
                 <div className="col border me-4 card text-bg-danger">
                     <div className="card-body">
 
-                    <h5 className="card-title">Trips Canceled</h5>
-                    <p className="card-text">5</p>
+                    <h5 className="card-title text-center">Trips Canceled</h5>
+                    <p className="card-text text-center">5</p>
                     </div>
                 </div>
                 
@@ -42,8 +42,8 @@ function Dashboard({db_data, pie_data}){
                 <div className="col border me-4 card text-bg-warning">
                     <div className="card-body">
 
-                    <h5 className="card-title">Bookings Failed</h5>
-                    <p className="card-text">7</p>
+                    <h5 className="card-title text-center">Bookings Failed</h5>
+                    <p className="card-text text-center">7</p>
                     </div>
                 </div>
                 
@@ -54,10 +54,10 @@ function Dashboard({db_data, pie_data}){
                     <p className="TitleHeading">Trip Bookings</p>
                     <div>
                     <LineChart width={900} height={300} data={db_data} margin={{ top: 5, right: 0, bottom: 5, left: 0 }}>
-                        <Line type="monotone" dataKey="bookings" stroke="#8884d8" />
+                        <Line type="linear" dataKey="bookings" stroke="#8884d8" />
                         <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                         <XAxis dataKey="month"/>
-                        <YAxis />
+                        <YAxis domain={[0, 550]}/>
                         <Tooltip />
                     </LineChart> 
                     </div>

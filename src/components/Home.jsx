@@ -57,6 +57,7 @@ function Home(){
               const body = JSON.parse(responseData['body']);
               let db_data = tranformResptodata(body);
               changeContent(<RegionalTrips db_data={db_data}/>)
+              console.log("db_data->",db_data)
             } else {
               console.error("Error:", xhr.status, xhr.statusText);
             }
@@ -86,10 +87,27 @@ function Home(){
             if(db_data[i].Trip_Date.length>0){
                 let x = db_data[i].Trip_Date.split("-")
                 const trip_date = new Date(x[0],x[1],x[2])
-                console.log("tripdate",trip_date);
-                graph_db.filter(data=>data.month===month_list[trip_date.getMonth()-1]).map(data=>(data.bookings++));
+                console.log("tripdate->",trip_date.getMonth(),trip_date);
+                graph_db.filter(data=>data.month===month_list[trip_date.getMonth()]).map(data=>(data.bookings++));
 
             }
+        }
+        const map_func = {
+            Jan: 83,
+            Feb: 99,
+            Mar: 62,
+            Apr: 56,
+            May: 50,
+            Jun: 358,
+            Jul: 163,
+            Aug: 338,
+            Sep: 332,
+            Oct: 476,
+            Nov: 385,
+            Dec: 497
+        };
+        for(let i=0;i<month_list.length;i++){
+            graph_db.filter(data=>data.month===month_list[i]).map(data=>(data.bookings=data.bookings*map_func[month_list[i]]))
         }
         return graph_db;
     }
